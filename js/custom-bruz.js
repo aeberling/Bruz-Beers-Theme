@@ -2,6 +2,42 @@
 
 // Ensure logo is properly sized and positioned when page loads
 $(document).ready(function() {
+    // Set hero height to fixed value
+    var fixedHeight = 450;
+    
+    // Force hero height to fixed value
+    $('#hero, #hero .carousel-inner, #hero .carousel-inner .item').css({
+        'height': fixedHeight + 'px',
+        'min-height': fixedHeight + 'px',
+        'max-height': fixedHeight + 'px'
+    });
+    
+    // Override height setting attempts
+    var originalCss = $.fn.css;
+    $.fn.css = function() {
+        if (this.is('#hero, #hero .carousel-inner, #hero .carousel-inner .item') && 
+            arguments[0] === 'height' || 
+            (arguments[0] && (arguments[0].height || arguments[0].minHeight || arguments[0].maxHeight))) {
+            
+            // Force our height for these elements
+            var result = originalCss.apply(this, arguments);
+            
+            // Reset height after any attempt to change it
+            setTimeout(function() {
+                $('#hero, #hero .carousel-inner, #hero .carousel-inner .item').css({
+                    'height': fixedHeight + 'px',
+                    'min-height': fixedHeight + 'px',
+                    'max-height': fixedHeight + 'px'
+                });
+            }, 0);
+            
+            return result;
+        }
+        
+        // Normal behavior for other elements
+        return originalCss.apply(this, arguments);
+    };
+    
     // Create a clone of the header for sticky navigation
     var $headerArea = $('.header-area');
     var $stickyHeader = $headerArea.clone().addClass('banner--clone').appendTo('body');
@@ -46,5 +82,14 @@ $(document).ready(function() {
         } else {
             $(this).addClass('collapsed');
         }
+    });
+    
+    // Additional protection against height changes - reapply height on window resize
+    $(window).on('resize', function() {
+        $('#hero, #hero .carousel-inner, #hero .carousel-inner .item').css({
+            'height': fixedHeight + 'px',
+            'min-height': fixedHeight + 'px',
+            'max-height': fixedHeight + 'px'
+        });
     });
 }); 
