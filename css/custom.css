@@ -313,4 +313,115 @@
     .header-area.banner--clone {
         display: none; /* Hide sticky header on mobile */
     }
+}
+
+/* Featured Cards Section */
+.featured-cards {
+    background-color: #f8f8f8;
+    padding: 60px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-header h1 {
+    color: #cbb27c;
+    margin-bottom: 5px;
+}
+
+.section-header h2 {
+    color: #333333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.section-header p {
+    color: #666666;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.feature-card {
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card .card-image {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%; 
+    height: 0;
+}
+
+.feature-card .card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.feature-card .card-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #333333;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.feature-card p {
+    color: #666666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.feature-card .btn {
+    margin-top: 10px;
+    background-color: #cbb27c;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.feature-card .btn:hover {
+    background-color: #333333;
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 991px) {
+    .feature-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .featured-cards {
+        padding: 40px 0;
+    }
+    
+    .feature-card .card-image {
+        height: 180px;
+    }
 } 
