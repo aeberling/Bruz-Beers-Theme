@@ -1,6 +1,79 @@
 /* Custom styles for Bruz Beers */
 
-/* Logo size and positioning */
+/* Header area styling */
+.header-area {
+    background-color: #333333;
+    padding: 0;
+    position: relative;
+    z-index: 100;
+    border-bottom: 3px solid #cbb27c;
+    min-height: 100px; /* Reduced from 140px */
+}
+
+/* Sticky header */
+.header-area.banner--clone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    background-color: #333333;
+    z-index: 1000;
+    border-bottom: 3px solid #cbb27c;
+    padding: 0;
+    min-height: 70px;
+}
+
+.header-area.banner--stick {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust columns for vertical alignment */
+.header-area .row {
+    display: flex;
+    align-items: center;
+    min-height: 100px; /* Reduced from 140px */
+}
+
+/* Adjust logo in sticky mode */
+.header-area.banner--clone .logo-container {
+    padding: 5px 10px;
+    height: auto;
+    min-height: 0;
+}
+
+.header-area.banner--clone .logo img {
+    max-height: 35px; /* 30% smaller than sticky 50px */
+    padding: 0 10px;
+}
+
+/* Adjust navigation container in sticky mode */
+.header-area.banner--clone .navigation-container {
+    padding: 0;
+    height: auto;
+    min-height: 0;
+}
+
+.header-area.banner--clone .nav {
+    padding-top: 0;
+}
+
+/* Make the sticky nav row more compact */
+.header-area.banner--clone .row {
+    min-height: 0;
+}
+
+/* Logo container */
+.logo-container {
+    padding: 10px 0; /* Reduced from 15px 0 */
+    height: auto;
+    display: flex;
+    align-items: center;
+    min-height: 80px; /* Reduced from 120px */
+}
+
 .logo {
     display: inline-block;
     position: relative;
@@ -8,60 +81,236 @@
 }
 
 .logo img {
-    max-height: 78px; /* 30% bigger than original 60px */
+    max-height: 100px; /* Increased from 78px to 100px (90px+) */
     width: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
     display: block;
 }
 
-/* Sticky header logo size */
-.navbar.banner--clone .logo img {
-    max-height: 65px; /* 30% bigger than original 50px */
-    margin-top: 10px;
-    margin-bottom: 10px;
+/* Social icons container */
+.social-container {
+    text-align: right;
+    padding: 10px 0;
 }
 
-/* Ensure navbar height accommodates larger logo */
-.navbar > .container {
+.social-container .social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.social-container .social li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.social-container .social li a {
+    color: #fff;
+    font-size: 16px;
+}
+
+.social-container .social li a:hover {
+    color: #cbb27c;
+}
+
+.finder-link a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.finder-link span {
+    color: #cbb27c;
+    margin-right: 5px;
+}
+
+/* Navigation container */
+.navigation-container {
+    text-align: right;
+    padding: 10px 0; /* Reduced from 15px 0 */
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 80px; /* Reduced from 120px */
+}
+
+.navigation-container .navbar {
+    margin: 0;
+    min-height: 0;
+    background: none;
+    border: none;
     position: relative;
-    min-height: 108px;
+    display: inline-block;
+    float: right;
 }
 
-/* Navigation fixes */
-@media (min-width: 768px) {
-    /* Fix the navigation display */
-    .navbar-collapse {
-        display: block !important;
-        height: auto !important;
-        padding-bottom: 0;
-        overflow: visible !important;
-    }
-    
-    /* Position the nav menu appropriately */
-    .nav {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-    }
-    
-    /* Ensure proper float for header */
-    .navbar-header {
-        float: left;
-    }
+.navigation-container .navbar-collapse {
+    padding: 0;
+}
+
+.navigation-container .nav {
+    position: relative;
+    transform: none;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-container .nav li {
+    position: relative;
+    margin: 0 8px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-container .nav li a {
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 1.4;
+}
+
+.navigation-container .nav li a:hover {
+    color: #cbb27c;
+}
+
+.navigation-container .nav li span {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.navigation-container .nav li span:before,
+.navigation-container .nav li span:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 1px;
+    height: 0;
+    content: '';
+    transition: .6s height ease;
+    background: #cbb27c;
+}
+
+.navigation-container .nav li span:after {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: auto;
+}
+
+.navigation-container .nav li:hover span:before,
+.navigation-container .nav li:hover span:after {
+    height: 100%;
+}
+
+.navigation-container .nav li a:before,
+.navigation-container .nav li a:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    content: '';
+    transition: .3s width ease;
+    background: #cbb27c;
+}
+
+.navigation-container .nav li a:after {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: auto;
+}
+
+.navigation-container .nav li:hover a:before,
+.navigation-container .nav li:hover a:after {
+    width: 100%;
+}
+
+.navigation-container .navbar-toggle {
+    margin-top: 0;
+    margin-right: 0;
+}
+
+/* Dropdown menu */
+.navigation-container .dropdown-menu {
+    background-color: #cbb27c;
+    border: none;
+    border-radius: 0;
+}
+
+.navigation-container .dropdown-menu li {
+    margin: 0;
+    display: block;
+}
+
+.navigation-container .dropdown-menu li a {
+    color: #333333;
+    text-transform: none;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+}
+
+.navigation-container .dropdown-menu li a:hover {
+    color: #ffffff;
+    background-color: #333333;
+}
+
+/* Hero section adjustments */
+#hero {
+    margin-top: 0;
 }
 
 /* Mobile adjustments */
 @media (max-width: 767px) {
-    .nav {
-        position: relative;
-        width: 100%;
-        transform: none;
+    .header-area .row {
+        display: block;
     }
     
-    /* Ensure mobile menu appears below logo */
-    .navbar-collapse {
+    .logo-container {
+        text-align: center;
+    }
+    
+    .social-container {
+        text-align: center;
+    }
+    
+    .social-container .social li {
+        margin: 0 8px;
+    }
+    
+    .navigation-container {
+        text-align: center;
+    }
+    
+    .navigation-container .navbar {
+        float: none;
+        width: 100%;
+    }
+    
+    .navigation-container .navbar-collapse {
         clear: both;
+    }
+    
+    .navigation-container .nav {
+        float: none;
+        text-align: left;
+        display: block;
+    }
+    
+    .navigation-container .nav li {
+        display: block;
+    }
+    
+    /* Mobile sticky header */
+    .header-area.banner--clone {
+        display: none; /* Hide sticky header on mobile */
     }
 } 
