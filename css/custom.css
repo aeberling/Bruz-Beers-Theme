@@ -285,7 +285,7 @@
 /* Adjust content positioning to be fully visible */
 #hero .container {
     position: absolute;
-    top: 55%; /* Moved up from 65% to 55% */
+    top: 45%; /* Moved up from 65% to 55% */
     left: 0;
     right: 0;
     transform: translateY(-50%) !important; /* Changed back to -50% for better centering */
@@ -492,4 +492,58 @@
     .feature-card .card-image {
         height: 180px;
     }
+}
+
+/* Hero carousel background images */
+#hero .item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#hero .item.hero-slide-1 {
+    background-image: url(../images/home-01.jpg);
+}
+
+#hero .item.hero-slide-2 {
+    background-image: url(../images/brew-8378.jpg);
+}
+
+#hero .item.hero-slide-3 {
+    background-image: url(../images/cja-2453.jpg);
+}
+
+/* Hero button styling */
+#hero .hero-btn {
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+/* Vertical alignment section */
+.section-vertical-center {
+    position: relative;
+    top: 25%;
+    transform: translateY(-25%);
+    padding-left: 30px;
+}
+
+/* Background image containers */
+.bg-brewing {
+    background-image: url(../images/brew-8398.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Section with height limit */
+.section-height-limit {
+    max-height: 465px;
+}
+
+/* Background images for latest posts */
+.latest-post .background.bg-events {
+    background-image: url(../images/cja-2544.jpg);
+}
+
+.latest-post .background.bg-awards {
+    background-image: url(../images/brew-8378.jpg);
 } 
