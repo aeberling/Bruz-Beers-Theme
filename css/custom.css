@@ -1,0 +1,67 @@
+/* Custom styles for Bruz Beers */
+
+/* Logo size and positioning */
+.logo {
+    display: inline-block;
+    position: relative;
+    margin-right: auto;
+}
+
+.logo img {
+    max-height: 78px; /* 30% bigger than original 60px */
+    width: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Sticky header logo size */
+.navbar.banner--clone .logo img {
+    max-height: 65px; /* 30% bigger than original 50px */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Ensure navbar height accommodates larger logo */
+.navbar > .container {
+    position: relative;
+    min-height: 108px;
+}
+
+/* Navigation fixes */
+@media (min-width: 768px) {
+    /* Fix the navigation display */
+    .navbar-collapse {
+        display: block !important;
+        height: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+    
+    /* Position the nav menu appropriately */
+    .nav {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+    
+    /* Ensure proper float for header */
+    .navbar-header {
+        float: left;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .nav {
+        position: relative;
+        width: 100%;
+        transform: none;
+    }
+    
+    /* Ensure mobile menu appears below logo */
+    .navbar-collapse {
+        clear: both;
+    }
+} 
