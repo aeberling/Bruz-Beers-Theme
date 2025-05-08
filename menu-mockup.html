@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruz Beers - Menu Mockup</title> <!-- Changed Title -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Removed owl-carousel.min.css as it might not be needed for menu page -->
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Basic styling from index-mockup.html */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .mockup-placeholder { border: 1px solid #ddd; background-color: #f0f0f0; padding: 15px; margin-bottom: 15px; text-align: center; color: #888; font-style: italic; min-height: 50px; display: flex; align-items: center; justify-content: center; }
+        .mockup-section { border: 2px dashed #ccc; padding: 50px 15px; margin-bottom: 30px; text-align: center; background-color: #f9f9f9; }
+        .mockup-section h3 { color: #999; font-style: italic; margin-top: 0; }
+
+        /* Header styling from index-mockup.html */
+        .header-area { border-bottom: 1px solid #eee; }
+        .logo-column { background-color: #333; padding: 15px; display: flex; align-items: center; justify-content: center; }
+        .logo-column img { max-height: 120px; width: auto; }
+        .social-container .social { margin-bottom: 0; }
+        .social-container .social li a { font-size: 1.5em; padding: 5px; }
+        .navigation-container .navbar { border: none; margin-bottom: 0; background-color: transparent; padding-top: 15px; padding-right: 0; margin-right: -20px; }
+        .navbar-nav > li > a { font-size: 1.8em; padding-top: 20px; padding-bottom: 20px; color: #555; }
+        .navbar-nav > .dropdown > a .caret { margin-top: 10px; }
+        .navbar-nav > li > a:hover, .navbar-nav > li > a:focus { color: #d4af37; background-color: transparent; }
+        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+            color: #d4af37; background-color: transparent;
+        }
+
+        /* Mega Menu Styling from index-mockup.html */
+        .navbar-nav > li.dropdown.mega-menu-dropdown { position: static; }
+        .mega-menu-dropdown .dropdown-menu { width: 100%; left: 0; right: 0; padding: 0; margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: none; }
+        .mega-menu-image { text-align: center; padding: 0; height: 100%; display: flex; align-items: stretch; }
+        .mega-menu-image img { max-width: 100%; height: auto; object-fit: cover; display: block; width: 100%; }
+        .mega-menu-links { padding: 30px; }
+        .mega-menu-links h4 { margin-top: 0; margin-bottom: 20px; font-weight: 600; color: #333; }
+        .mega-menu-links .list-unstyled li a { padding: 12px 0; display: block; color: #555; font-size: 1.3em; font-weight: 500; border-bottom: 1px solid #eee; transition: color 0.2s ease, padding-left 0.2s ease; }
+        .mega-menu-links .list-unstyled li:last-child a { border-bottom: none; }
+        .mega-menu-links .list-unstyled li a:hover { color: #d4af37; text-decoration: none; padding-left: 8px; }
+        .mega-menu-action-button { margin-bottom: 25px; }
+        .mega-menu-action-button .btn-default { background-color: #d4af37; color: white; border: none; padding: 10px 20px; font-weight: 600; }
+
+        /* Locations Styling from index-mockup.html */
+        .top-right-container { display: flex; justify-content: flex-end; align-items: center; padding-top: 15px; padding-bottom: 10px; }
+        .social-container { padding: 0 15px 0 0; border-right: 1px solid #ddd; margin-right: 15px; }
+        .locations-container { font-size: 0.9em; color: #555; }
+        .locations-label { font-weight: bold; margin-right: 10px; }
+        .location-link { margin-left: 10px; color: #555; white-space: nowrap; }
+        .location-link .fa { margin-right: 4px; color: #d4af37; }
+        .location-link:hover { color: #333; text-decoration: none; }
+
+        /* Footer Styling from index-mockup.html */
+        .footer-section { background-color: #222; color: #aaa; padding: 60px 0 40px; }
+        .footer-column h6 { color: #fff; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links li a { color: #aaa; transition: color 0.2s ease, padding-left 0.2s ease; }
+        .footer-links li a:hover { color: #fff; text-decoration: none; padding-left: 5px; }
+        .footer-social li { margin-right: 10px; }
+        .footer-social li a { color: #aaa; font-size: 1.6em; transition: color 0.2s ease; }
+        .footer-social li a:hover { color: #d4af37; }
+        .footer-column p { margin-bottom: 10px; }
+        .footer-column p .fa { margin-right: 8px; color: #d4af37; }
+        .footer-column p a { color: #aaa; }
+        .footer-column p a:hover { color: #fff; }
+        .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9em; }
+
+        /* Menu Page Specific Styles (Adapted from shop.html concept) */
+        .menu-hero {
+            min-height: 350px; /* Adjust height as needed */
+            padding: 50px 0;
+            background-color: #eee; /* Light background */
+            background-image: url('images/bruz-beer-flights.jpg'); /* Example background */
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #333;
+            margin-bottom: 0; /* Remove bottom margin */
+            position: relative;
+            transition: width 0.3s ease;
+        }
+        .menu-hero-overlay {
+            background-color: rgba(255, 255, 255, 0.7); /* Light overlay */
+            padding: 30px;
+            border-radius: 5px;
+            display: inline-block; /* Fit content */
+        }
+        .menu-hero h1 {
+            font-size: 3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #222;
+        }
+        .menu-hero h2 {
+            font-size: 1.8em;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .filter-bar {
+            background-color: #f8f8f8; /* Lighter than dark section in shop.html */
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .horz-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .horz-menu li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .horz-menu li span {
+            display: block;
+            position: relative;
+        }
+        .horz-menu li a {
+            color: #555;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .horz-menu li a::after { /* Underline effect */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37; /* Gold color */
+            transition: width 0.3s ease;
+        }
+        .horz-menu li.active a,
+        .horz-menu li a:hover {
+            color: #d4af37; /* Gold color */
+        }
+        .horz-menu li.active a::after,
+        .horz-menu li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-items-section {
+            padding: 50px 0;
+            background-color: #fff; /* White background for items */
+        }
+        .menu-item-wrapper {
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        .menu-item {
+            border: 1px solid #eee;
+            background: #fff;
+            text-align: left; /* Align text left */
+            padding: 25px;
+            transition: box-shadow 0.3s ease;
+            height: 100%; /* Make items in a row equal height */
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        /* Removed old .menu-item-image style */
+        /* Add square image container style */
+        .menu-item-img-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 133.33%; /* Changed from 100% for vertical 3:4 aspect ratio */
+            overflow: hidden;
+            margin-bottom: 20px; /* Space below image */
+            background-color: #eee; /* Placeholder background */
+            border-radius: 4px;
+        }
+        .menu-item-img-wrap img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crop image to cover the square area */
+            display: block;
+        }
+        /* New Release Label Style */
+        /* .new-release-label { ... } */ /* Commenting out or removing label style */
+        .menu-item h3 { /* Drink Name */
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.6em;
+            color: #333;
+            font-weight: 600;
+        }
+        .menu-item-details { /* Style/ABV/etc. */
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .menu-item-description { /* Repurposed for Pour/Price/To-Go */
+            font-size: 0.95em;
+            color: #555;
+            /* flex-grow: 1; */ /* Removed flex-grow */
+            margin-bottom: 0; /* Removed bottom margin */
+            line-height: 1.6;
+        }
+        /* Removed .menu-item-price style */
+        /* Simple placeholder for image */
+        .menu-item-placeholder-img {
+             height: 100px;
+             width: 100px;
+             background-color: #ddd;
+             margin: 0 auto 15px auto; /* Center horizontally */
+             border-radius: 50%; /* Make it circular */
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 2em;
+             color: #aaa;
+        }
+
+        /* Pagination styling (if needed, adapted from shop.html concept) */
+        /* .pagination-bar { ... } */ /* Commenting out or removing pagination */
+        .pages { /* Use same class as shop.html */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .pages li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .pages li span { display: block; }
+        .pages li a {
+            display: block;
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            color: #555;
+            background-color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+         .pages li a:hover,
+         .pages li.active a {
+            background-color: #d4af37;
+            color: #fff;
+            border-color: #c4a127;
+         }
+
+        /* Style adjustments for secondary filter */
+        #beer-filter-bar {
+            display: none; /* Hidden by default */
+            border-top: 1px solid #eee; /* Separator line */
+            margin-top: -1px; /* Overlap borders slightly */
+            background-color: #fdfdfd; /* Slightly different background */
+        }
+
+        /* View Toggle Buttons */
+        .view-toggle-buttons {
+            text-align: right;
+            padding: 0 0 15px 0; /* Padding below filters, above items */
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .view-toggle-buttons a {
+            font-size: 1.6em;
+            color: #aaa;
+            margin-left: 12px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .view-toggle-buttons a:hover,
+        .view-toggle-buttons a.active-view {
+            color: #d4af37; /* Gold color for active/hover */
+        }
+
+        /* List View Styles */
+        #menu-list-view-wrapper .menu-category-section {
+            margin-bottom: 30px;
+        }
+        #menu-list-view-wrapper .menu-category-section h3 {
+            font-size: 1.8em; /* Made slightly larger */
+            font-weight: 700; /* Bolder */
+            color: #222;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .menu-item-list {
+            display: flex;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0; /* Lighter separator for items */
+            align-items: flex-start;
+        }
+        .menu-item-list:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .menu-item-list-thumb {
+            flex: 0 0 80px; /* Slightly larger thumbnail */
+            height: 80px;
+            margin-right: 20px;
+        }
+        .menu-item-list-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px; /* Consistent rounding */
+            border: 1px solid #eee;
+        }
+        .menu-item-list-content {
+            flex-grow: 1;
+        }
+        .menu-item-list-content h4 { /* Beer Name */
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.3em;
+            color: #333;
+            font-weight: 600;
+        }
+        .menu-item-list-description { /* Tagline/Description from menu */
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .menu-item-list-stats { /* ABV */
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .menu-item-list-pricing { /* Pour sizes and prices */
+            font-size: 0.9em;
+            color: #444;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .menu-item-list-pricing .separator {
+            color: #ccc;
+            margin: 0 8px;
+        }
+
+        .menu-items-section {
+            padding: 20px 0 50px 0; /* Adjusted padding */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Area (Copied from index-mockup.html) -->
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-md-3 logo-column">
+                    <a href="index.html" class="logo" title="Bruz Beers">
+                        <img src="images/bruz-logo.png" alt="Bruz Beers">
+                    </a>
+                </div>
+                <!-- Navigation and Social Icons -->
+                <div class="col-md-9">
+                    <!-- Top Right Section (Social + Locations) -->
+                    <div class="top-right-container">
+                        <div class="social-container">
+                            <ul class="social list-inline" style="margin-bottom: 0;">
+                                <li><a href="https://www.instagram.com/bruzbeers/" target="_blank"><i class="fa fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                                <li><a href="https://www.facebook.com/bruzbeers/" target="_blank"><i class="fa fa-facebook-square"></i><span class="sr-only">Facebook</span></a></li>
+                                <li><a href="https://twitter.com/bruzbeers" target="_blank"><i class="fa fa-twitter-square"></i><span class="sr-only">Twitter</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="locations-container">
+                            <span class="locations-label">Locations:</span>
+                            <a href="#" class="location-link"><i class="fa fa-map-marker"></i> Bruz Midtown</a>
+                            <a href="#" class="location-link"><i class="fa fa-map-marker"></i> Bruz Off Fax</a>
+                        </div>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="navigation-container">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-mockup" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navbar-collapse-mockup">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown mega-menu-dropdown"> <!-- Drink Mega Menu -->
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drink <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                         <img src="images/bruz-beer-glass-rect.jpg" alt="Bruz Beer Glass">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="menu-mockup.html">Beer Menu</a></li> <!-- Link to this page -->
+                                                                    <li><a href="#">Non-Alcoholic Beverages</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Wine</a></li>
+                                                                    <li><a href="#">Mixed Drinks</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown mega-menu-dropdown"> <!-- Eat Mega Menu -->
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eat <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                         <img src="images/photos/food-trucks/elevation-5280.jpeg" alt="Food Truck">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <h4>Food Options</h4>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="#">Taproom Menu</a></li>
+                                                            <li><a href="#">Food Truck Schedule</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                   <li class="dropdown mega-menu-dropdown"> <!-- Events Mega Menu -->
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                        <img src="images/photos/events/trivia/trivia-v.jpg" alt="Bruz Events">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="mega-menu-action-button" style="margin-bottom: 25px;">
+                                                            <a href="#" class="btn btn-default">All Events</a>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Daily Specials</a></li>
+                                                                    <li><a href="#">Trivia Night</a></li>
+                                                                    <li><a href="#">Belgian Import Festival</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Brewery Boot Camp</a></li>
+                                                                    <li><a href="#">Naughty Embroidery Class</a></li>
+                                                                    <li><a href="#">Private Parties</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown mega-menu-dropdown"> <!-- Shop Mega Menu -->
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                        <img src="images/photos/shop/hat-Athletic_Gray-Aqua_Front.jpg" alt="Bruz Beers Hat">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="mega-menu-action-button" style="margin-bottom: 25px;">
+                                                            <a href="/store" class="btn btn-default">Shop All</a>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="/to-go-beer">Gift Packages</a></li>
+                                                                    <li><a href="/store">Merchandise</a></li>
+                                                                    <li><a href="/available-only-in-taproom">Glassware</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="https://squareup.com/gift/2TX63GM6QV2HW/order" target="_blank">Gift Cards</a></li>
+                                                                    <li><a href="/badassbelgianbeerclub">Badass Belgian Beer Club</a></li>
+                                                                    <li><a href="/belgium-trip">Belgium Trip</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown mega-menu-dropdown"> <!-- About Mega Menu -->
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                         <img src="images/photos/staff/ryan-and-charlie-2.jpg" alt="Bruz Beers Founders">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Our Story</a></li>
+                                                                    <li><a href="#">Our Values</a></li>
+                                                                    <li><a href="#">Belgian Style Beer</a></li>
+                                                                    <li><a href="#">Contact Us</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Photo Gallery</a></li>
+                                                                    <li><a href="#">Blog</a></li>
+                                                                    <li><a href="#">Travel Log</a></li>
+                                                                    <li><a href="#">Trip to Belgium</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section (Adapted from shop.html concept) -->
+    <div class="menu-hero">
+        <div class="menu-hero-overlay">
+             <h1>Drinks Menu</h1>
+             <h2>Explore Our Selection</h2>
+        </div>
+    </div>
+
+    <!-- Start Main Menu Content Container -->
+    <div class="container" id="menu-content-area">
+
+        <!-- Filter Bar (Adapted from shop.html) -->
+        <div class="filter-bar primary-filter-bar">
+            <ul class="horz-menu">
+                <li class="active"><span><a href="#">All Drinks</a></span></li>
+                <li><span><a href="#">Beer</a></span></li>
+                <li><span><a href="#">Wine</a></span></li>
+                <li><span><a href="#">Mixed Drinks</a></span></li>
+                <li><span><a href="#">Non-Alcoholic</a></span></li>
+            </ul>
+        </div>
+
+        <!-- Secondary Beer Filter Bar (Initially Hidden) -->
+        <div id="beer-filter-bar" class="filter-bar">
+            <ul class="horz-menu">
+                <li class="active"><span><a href="#" data-filter="all-beer">All Beer Types</a></span></li>
+                <li><span><a href="#" data-filter="sessionable">Sessionable Belgians</a></span></li>
+                <li><span><a href="#" data-filter="bigger">Bigger Belgians</a></span></li>
+                <li><span><a href="#" data-filter="sour">Sour Belgians</a></span></li>
+                <li><span><a href="#" data-filter="barrel">Barrel Aged Belgians</a></span></li>
+            </ul>
+        </div>
+
+        <!-- View Toggle Buttons (Now directly in main container) -->
+        <div class="view-toggle-buttons">
+            <a href="#" id="tile-view-btn" class="active-view" title="Tile View"><i class="fa fa-th-large"></i></a>
+            <a href="#" id="list-view-btn" title="List View"><i class="fa fa-list"></i></a>
+        </div>
+
+        <!-- Menu Items Section (Houses both Grid and List Views) -->
+        <div class="menu-items-section">
+            <!-- Grid View Wrapper -->
+            <div id="menu-grid-view-wrapper">
+                <div class="row">
+                    <!-- Row 1 -->
+                    <!-- Menu Item 1: Mr. Prickles -->
+                    <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                            <div class="menu-item-img-wrap">
+                                <!-- <span class="new-release-label">New Release</span> Removed Label -->
+                                <img src="images/photos/beer/releases/Apricot-Wit.jpg" alt="Mr. Prickles"> <!-- Reused image -->
+                            </div>
+                            <h3>Mr. Prickles</h3>
+                            <div class="menu-item-details">Belgian-style blonde ale fermented with prickly pears | ABV 5.2%</div>
+                            <p class="menu-item-description">
+                                14oz Pour - $8.50 <br>
+                                32oz Crowler (to-go) - $15.50
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 2: Raspberry Lime -->
+                    <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                 <img src="images/photos/beer/releases/Biere-De-Gourd.jpg" alt="Raspberry Lime"> <!-- Reused image -->
+                             </div>
+                            <h3>Raspberry Lime</h3>
+                            <div class="menu-item-details">Belgian-style blond ale fermented with raspberry and limes | ABV 5.2%</div>
+                             <p class="menu-item-description">
+                                14oz Pour - $8.50 <br>
+                                32oz Crowler (to-go) - $15.50
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 3: Vienna Lager -->
+                    <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                 <img src="images/photos/beer/releases/Czech-Dark.jpg" alt="Vienna Lager"> <!-- Reused image -->
+                             </div>
+                            <h3>Vienna Lager</h3>
+                             <div class="menu-item-details">Light, easy-drinking amber lager with a gentle toasty malt character | ABV 5.3%</div>
+                             <p class="menu-item-description">
+                                14oz Pour - $7.50 <br>
+                                4-pack (to-go) - $16
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                     <!-- Menu Item 4: Louie -->
+                    <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                  <img src="images/photos/beer/releases/Apricot-Wit.jpg" alt="Louie"> <!-- Reused image -->
+                             </div>
+                            <h3>Louie</h3>
+                            <div class="menu-item-details">Classic Belgian-style saison. Dry and peppery with fruity aromas | ABV 6.1%</div>
+                            <p class="menu-item-description">
+                                14oz Pour - $8.00 <br>
+                                32oz Crowler (to-go) - $15.50
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 5: Dubbel -->
+                     <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                  <img src="images/photos/beer/releases/Biere-De-Gourd.jpg" alt="Dubbel"> <!-- Reused image -->
+                             </div>
+                            <h3>Dubbel</h3>
+                            <div class="menu-item-details">Dark Abbey-style ale with flavors of toffee, caramel and dates | ABV 6.8%</div>
+                             <p class="menu-item-description">
+                                10oz Pour - $8.50 <br>
+                                4-pack (to-go) - $18
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 6: Dawg Daze Belgian IPA -->
+                    <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                  <img src="images/photos/beer/releases/Czech-Dark.jpg" alt="Dawg Daze Belgian IPA"> <!-- Reused image -->
+                             </div>
+                            <h3>Dawg Daze Belgian IPA</h3>
+                             <div class="menu-item-details">A feisty blend of fruity Belgian yeast and bold American hops | ABV 7.0%</div>
+                             <p class="menu-item-description">
+                                14oz Pour - $8.00 <br>
+                                4-pack (to-go) - $18
+                            </p>
+                        </div>
+                    </div>
+
+                     <!-- Row 3 -->
+                     <!-- Menu Item 7: Jonas Micah -->
+                     <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                            <div class="menu-item-img-wrap">
+                                <img src="images/photos/beer/releases/Apricot-Wit.jpg" alt="Jonas Micah"> <!-- Reused image -->
+                            </div>
+                            <h3>Jonas Micah</h3>
+                            <div class="menu-item-details">Propogate Labs collab. Saison brewed w/ spelt and Cascade hops | ABV 7.4%</div>
+                            <p class="menu-item-description">
+                                14oz Pour - $8.00 <br>
+                                32oz Crowler (to-go) - $15.50
+                            </p>
+                        </div>
+                    </div>
+                     <!-- Menu Item 8: Whak! -->
+                     <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                 <img src="images/photos/beer/releases/Biere-De-Gourd.jpg" alt="Whak!"> <!-- Reused image -->
+                             </div>
+                            <h3>Whak!</h3>
+                            <div class="menu-item-details">Malt-forward Amber Ale with flavors of caramelized bananas | ABV 7.8%</div>
+                             <p class="menu-item-description">
+                                14oz Pour - $8.00 <br>
+                                32oz Crowler (to-go) - $18.50
+                            </p>
+                        </div>
+                    </div>
+                     <!-- Menu Item 9: Peach Pistachio -->
+                     <div class="col-md-4 menu-item-wrapper">
+                        <div class="menu-item">
+                             <div class="menu-item-img-wrap">
+                                 <img src="images/photos/beer/releases/Czech-Dark.jpg" alt="Peach Pistachio"> <!-- Reused image -->
+                             </div>
+                            <h3>Peach Pistachio</h3>
+                             <div class="menu-item-details">Blend of golden sour ales on Palisade peaches and pistachios | ABV 6.8%</div>
+                             <p class="menu-item-description">
+                                14oz Pour - $8.50 <br>
+                                32oz Crowler (to-go) - $18.50
+                            </p>
+                        </div>
+                    </div>
+                     <!-- End of 9 items -->
+
+                </div>
+            </div>
+             <!-- End of 9 items for Grid View -->
+        </div> <!-- End #menu-grid-view-wrapper -->
+
+        <!-- List View Wrapper (Initially Hidden) -->
+        <div id="menu-list-view-wrapper" style="display: none;">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Sessionable Belgians Column 1 -->
+                    <div class="menu-category-section">
+                        <h3>Sessionable Belgians</h3>
+                        <!-- Mr. Prickles -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Apricot-Wit.jpg" alt="Mr. Prickles"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Mr. Prickles</h4>
+                                <p class="menu-item-list-description">Belgian-style blonde ale fermented with prickly pears</p>
+                                <p class="menu-item-list-stats">ABV 5.2%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.50 <span class="separator">|</span> 32oz Crowler (to-go) - 15.50</p>
+                            </div>
+                        </div>
+                        <!-- Raspberry Lime -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Biere-De-Gourd.jpg" alt="Raspberry Lime"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Raspberry Lime</h4>
+                                <p class="menu-item-list-description">Belgian-style blond ale fermented with raspberry and limes</p>
+                                <p class="menu-item-list-stats">ABV 5.2%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.50 <span class="separator">|</span> 32oz Crowler (to-go) - 15.50</p>
+                            </div>
+                        </div>
+                        <!-- Vienna Lager -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Czech-Dark.jpg" alt="Vienna Lager"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Vienna Lager</h4>
+                                <p class="menu-item-list-description">Light, easy-drinking amber lager with a gentle toasty malt character</p>
+                                <p class="menu-item-list-stats">ABV 5.3%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 7.50 <span class="separator">|</span> 4-pack (to-go) - 16</p>
+                            </div>
+                        </div>
+                         <!-- Louie -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Apricot-Wit.jpg" alt="Louie"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Louie</h4>
+                                <p class="menu-item-list-description">Classic Belgian-style saison. Dry and peppery with fruity aromas</p>
+                                <p class="menu-item-list-stats">ABV 6.1%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.00 <span class="separator">|</span> 32oz Crowler (to-go) - 15.50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Sessionable Belgians Column 2 (Continued) -->
+                    <div class="menu-category-section">
+                        <!-- Intentionally no H3 if it's a continuation, or could repeat H3 -->
+                        <!-- Dubbel -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Biere-De-Gourd.jpg" alt="Dubbel"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Dubbel</h4>
+                                <p class="menu-item-list-description">Dark Abbey-style ale with flavors of toffee, caramel and dates</p>
+                                <p class="menu-item-list-stats">ABV 6.8%</p>
+                                <p class="menu-item-list-pricing">10oz Pour - 8.50 <span class="separator">|</span> 4-pack (to-go) - 18</p>
+                            </div>
+                        </div>
+                        <!-- Dawg Daze Belgian IPA -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Czech-Dark.jpg" alt="Dawg Daze Belgian IPA"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Dawg Daze Belgian IPA</h4>
+                                <p class="menu-item-list-description">A feisty blend of fruity Belgian yeast and bold American hops</p>
+                                <p class="menu-item-list-stats">ABV 7.0%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.00 <span class="separator">|</span> 4-pack (to-go) - 18</p>
+                            </div>
+                        </div>
+                        <!-- Jonas Micah -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Apricot-Wit.jpg" alt="Jonas Micah"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Jonas Micah</h4>
+                                <p class="menu-item-list-description">Propogate Labs collab. Saison brewed w/ spelt and Cascade hops. Flavors of tangerine & berries</p> <!-- Added flavor from image -->
+                                <p class="menu-item-list-stats">ABV 7.4%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.00 <span class="separator">|</span> 32oz Crowler (to-go) - 15.50</p>
+                            </div>
+                        </div>
+                        <!-- Whak! -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Biere-De-Gourd.jpg" alt="Whak!"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Whak!</h4>
+                                <p class="menu-item-list-description">Malt-forward Amber Ale with flavors of caramelized bananas</p>
+                                <p class="menu-item-list-stats">ABV 7.8%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.00 <span class="separator">|</span> 32oz Crowler (to-go) - 18.50</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sour Belgians Column 2 -->
+                    <div class="menu-category-section">
+                        <h3>Sour Belgians</h3>
+                        <!-- Peach Pistachio -->
+                        <div class="menu-item-list">
+                            <div class="menu-item-list-thumb"><img src="images/photos/beer/releases/Czech-Dark.jpg" alt="Peach Pistachio"></div>
+                            <div class="menu-item-list-content">
+                                <h4>Peach Pistachio</h4>
+                                <p class="menu-item-list-description">Blend of golden sour ales on Palisade peaches and pistachios</p>
+                                <p class="menu-item-list-stats">ABV 6.8%</p>
+                                <p class="menu-item-list-pricing">14oz Pour - 8.50 <span class="separator">|</span> 32oz Crowler (to-go) - 18.50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End #menu-list-view-wrapper -->
+
+    </div> <!-- End .menu-items-section -->
+
+    </div> <!-- End #menu-content-area .container -->
+
+    <!-- Footer (Copied from index-mockup.html) -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 footer-column">
+                    <h6>Useful</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Our story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 footer-column">
+                    <h6>Help</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Customer service</a></li>
+                        <li><a href="#">Find our beer</a></li>
+                        <li><a href="#">Recent orders</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms &amp; Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 footer-column">
+                     <h6>Beer Styles</h6> <!-- Kept relevant column -->
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Belgian Blondes</a></li>
+                        <li><a href="#">Tripels & Dubbels</a></li>
+                        <li><a href="#">Saisons</a></li>
+                        <li><a href="#">Specialty Ales</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5 col-sm-push-1 footer-column">
+                     <h6>Contact Information</h6>
+                    <p><i class="fa fa-map-marker"></i> 1675 W 67th Ave #100, Denver, CO 80221</p>
+                    <p><i class="fa fa-envelope-o"></i> <a href="mailto:info@bruzbeers.com">info@bruzbeers.com</a></p>
+                    <p><i class="fa fa-phone"></i> (303) 650-2337</p>
+                    <ul class="list-inline footer-social">
+                        <li><a href="https://www.instagram.com/bruzbeers/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/bruzbeers/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/bruzbeers" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>2023 &copy; Bruz Beers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Add other JS if needed, e.g., for interactions -->
+    <script>
+        $(document).ready(function() {
+            // Primary filter click handler
+            $('.primary-filter-bar .horz-menu a').on('click', function(e) {
+                e.preventDefault();
+                var $thisLink = $(this);
+                var $thisLi = $thisLink.closest('li');
+
+                // Update active state for primary filter
+                $('.primary-filter-bar .horz-menu li').removeClass('active');
+                $thisLi.addClass('active');
+
+                // Show/hide secondary filter based on primary selection
+                if ($thisLink.text().trim() === 'Beer') {
+                    $('#beer-filter-bar').slideDown(200); // Show with animation
+                } else {
+                    $('#beer-filter-bar').slideUp(200); // Hide with animation
+                }
+                // Add actual content filtering logic here later if needed
+            });
+
+             // Secondary filter click handler (for active state only)
+            $('#beer-filter-bar .horz-menu a').on('click', function(e) {
+                e.preventDefault();
+                var $thisLi = $(this).closest('li');
+
+                // Update active state for secondary filter
+                $('#beer-filter-bar .horz-menu li').removeClass('active');
+                $thisLi.addClass('active');
+
+                // Add actual content filtering logic here later if needed
+            });
+
+            // View Toggler
+            $('#tile-view-btn').on('click', function(e) {
+                e.preventDefault();
+                $('#menu-list-view-wrapper').hide();
+                $('#menu-grid-view-wrapper').show();
+                $(this).addClass('active-view');
+                $('#list-view-btn').removeClass('active-view');
+            });
+
+            $('#list-view-btn').on('click', function(e) {
+                e.preventDefault();
+                $('#menu-grid-view-wrapper').hide();
+                $('#menu-list-view-wrapper').show();
+                $(this).addClass('active-view');
+                $('#tile-view-btn').removeClass('active-view');
+            });
+        });
+    </script>
+</body>
+</html> 
