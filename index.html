@@ -35,74 +35,185 @@
                 <div class="container">
                     <div class="row">
                         <!-- Logo -->
-                        <div class="col-md-3">
-                            <div class="logo-container">
-                                <a href="index.html" class="logo" title="Bruz Beers">
-                                    <img src="images/bruz-logo.png" alt="Bruz Beers">
-                                </a>
-                            </div>
+                        <div class="col-md-3 logo-column">
+                            <a href="index.html" class="logo" title="Bruz Beers">
+                                <img src="images/bruz-logo.png" alt="Bruz Beers">
+                            </a>
                         </div>
                         <!-- Navigation and Social Icons -->
                         <div class="col-md-9">
-                            <!-- Social Icons -->
-                            <div class="social-container">
-                                <ul class="social">
-                                    <li><a href="https://www.instagram.com/bruzbeers/" class="fa fa-instagram"></a></li>
-                                    <li><a href="https://www.facebook.com/bruzbeers/" class="fa fa-facebook-square"></a></li>
-                                    <li><a href="https://twitter.com/bruzbeers" class="fa fa-twitter-square"></a></li>
-                                    <li class="finder-link"><a href="#"><span class="fa fa-map-marker"></span> Find our beer</a></li>
-                                </ul>
+                            <!-- Top Right Section (Social + Locations) -->
+                            <div class="top-right-container">
+                                <div class="social-container">
+                                    <ul class="social list-inline" style="margin-bottom: 0;">
+                                        <li><a href="https://www.instagram.com/bruzbeers/" target="_blank"><i class="fa fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                                        <li><a href="https://www.facebook.com/bruzbeers/" target="_blank"><i class="fa fa-facebook-square"></i><span class="sr-only">Facebook</span></a></li>
+                                        <li><a href="https://twitter.com/bruzbeers" target="_blank"><i class="fa fa-twitter-square"></i><span class="sr-only">Twitter</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="locations-container">
+                                    <span class="locations-label">Locations:</span>
+                                    <a href="#" class="location-link"><i class="fa fa-map-marker"></i> Bruz Midtown</a>
+                                    <a href="#" class="location-link"><i class="fa fa-map-marker"></i> Bruz Off Fax</a>
+                                </div>
                             </div>
                             <!-- Navigation -->
                             <div class="navigation-container">
-                                <nav class="navbar">
+                                <nav class="navbar navbar-default">
                                     <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
                                             <span class="sr-only">Toggle navigation</span>
-                                            <span class="icon-bar top-bar"></span>
-                                            <span class="icon-bar middle-bar"></span>
-                                            <span class="icon-bar bottom-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
                                         </button>
                                     </div>
-                                    <div class="navbar-collapse collapse">
-                                        <ul id="menu-primary" class="nav navbar-nav">
-                                            <li class="active">
-                                                <span>
-                                                    <a href="index.html">Home</a>
-                                                </span>
+                                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="dropdown mega-menu-dropdown"> <!-- Drink Mega Menu -->
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drink <span class="caret"></span></a>
+                                                <div class="dropdown-menu">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mega-menu-image">
+                                                                 <img src="images/bruz-beer-glass-rect.jpg" alt="Bruz Beer Glass">
+                                                            </div>
+                                                            <div class="col-md-8 mega-menu-links">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="#">Beer Menu</a></li>
+                                                                            <li><a href="#">Non-Alcoholic Beverages</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="#">Wine</a></li>
+                                                                            <li><a href="#">Mixed Drinks</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li>
-                                                <span>
-                                                    <a href="shop.html">Shop</a>
-                                                </span>
+                                            <li class="dropdown mega-menu-dropdown"> <!-- Eat Mega Menu -->
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eat <span class="caret"></span></a>
+                                                <div class="dropdown-menu">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mega-menu-image">
+                                                                 <img src="images/photos/food-trucks/elevation-5280.jpeg" alt="Food Truck">
+                                                            </div>
+                                                            <div class="col-md-8 mega-menu-links">
+                                                                <h4>Food Options</h4>
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Taproom Menu</a></li>
+                                                                    <li><a href="#">Food Truck Schedule</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li class="dropdown">
-                                                <span>
-                                                    <a href="our-beer.html">Our beer</a>
-                                                </span>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="our-beer.html">Belgian-Style Ales</a></li>
-                                                    <li><a href="our-beer.html">Seasonal Brews</a></li>
-                                                    <li><a href="our-beer.html">Limited Releases</a></li>
-                                                </ul>
+                                            <li class="dropdown mega-menu-dropdown"> <!-- Events Mega Menu -->
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+                                                <div class="dropdown-menu">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mega-menu-image">
+                                                                <img src="images/photos/events/trivia/trivia-v.jpg" alt="Bruz Events">
+                                                            </div>
+                                                            <div class="col-md-8 mega-menu-links">
+                                                                <div class="mega-menu-action-button" style="margin-bottom: 25px;">
+                                                                    <a href="#" class="btn btn-default" style="background-color: #d4af37; color: white; border: none; padding: 10px 20px; font-weight: 600;">All Events</a>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="#">Daily Specials</a></li>
+                                                                            <li><a href="#">Trivia Night</a></li>
+                                                                            <li><a href="#">Belgian Import Festival</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="#">Brewery Boot Camp</a></li>
+                                                                            <li><a href="#">Naughty Embroidery Class</a></li>
+                                                                            <li><a href="#">Private Parties</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li>
-                                                <span>
-                                                    <a href="our-story.html">Our story</a>
-                                                </span>
+                                            <li class="dropdown mega-menu-dropdown"> <!-- Shop Mega Menu -->
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                                                <div class="dropdown-menu">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mega-menu-image">
+                                                                <img src="images/photos/shop/hat-Athletic_Gray-Aqua_Front.jpg" alt="Bruz Beers Hat">
+                                                            </div>
+                                                            <div class="col-md-8 mega-menu-links">
+                                                                <div class="mega-menu-action-button" style="margin-bottom: 25px;">
+                                                                    <a href="/store" class="btn btn-default" style="background-color: #d4af37; color: white; border: none; padding: 10px 20px; font-weight: 600;">Shop All</a>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="/to-go-beer">Gift Packages</a></li>
+                                                                            <li><a href="/store">Merchandise</a></li>
+                                                                            <li><a href="/available-only-in-taproom">Glassware</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="https://squareup.com/gift/2TX63GM6QV2HW/order" target="_blank">Gift Cards</a></li>
+                                                                            <li><a href="/badassbelgianbeerclub">Badass Belgian Beer Club</a></li>
+                                                                            <li><a href="/belgium-trip">Belgium Trip</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li>
-                                                <span>
-                                                    <a href="contact.html">Contact</a>
-                                                </span>
-                                            </li>
-                                            <li class="dropdown">
-                                                <span>
-                                                    <a href="blog.html">Blog</a>
-                                                </span>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="blog-single.html">Single post</a></li>
-                                                </ul>
+                                            <li class="dropdown mega-menu-dropdown"> <!-- About Mega Menu -->
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                                                <div class="dropdown-menu">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mega-menu-image">
+                                                                 <img src="images/photos/staff/ryan-and-charlie-2.jpg" alt="Bruz Beers Founders">
+                                                            </div>
+                                                            <div class="col-md-8 mega-menu-links">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="#">Our Story</a></li>
+                                                                            <li><a href="#">Our Values</a></li>
+                                                                            <li><a href="#">Belgian Style Beer</a></li>
+                                                                            <li><a href="#">Contact Us</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <ul class="list-unstyled">
+                                                                            <li><a href="#">Photo Gallery</a></li>
+                                                                            <li><a href="#">Blog</a></li>
+                                                                            <li><a href="#">Travel Log</a></li>
+                                                                            <li><a href="#">Trip to Belgium</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>

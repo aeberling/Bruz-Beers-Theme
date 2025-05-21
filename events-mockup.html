@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruz Beers - Events Mockup</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Basic styling from index-mockup.html */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        /* Header styling from index-mockup.html */
+        .header-area { border-bottom: 1px solid #eee; }
+        .logo-column { background-color: #333; padding: 15px; display: flex; align-items: center; justify-content: center; }
+        .logo-column img { max-height: 120px; width: auto; }
+        .social-container .social { margin-bottom: 0; }
+        .social-container .social li a { font-size: 1.5em; padding: 5px; }
+        .navigation-container .navbar { border: none; margin-bottom: 0; background-color: transparent; padding-top: 15px; padding-right: 0; margin-right: -20px; }
+        .navbar-nav > li > a { font-size: 1.8em; padding-top: 20px; padding-bottom: 20px; color: #555; }
+        .navbar-nav > .dropdown > a .caret { margin-top: 10px; }
+        .navbar-nav > li > a:hover, .navbar-nav > li > a:focus { color: #d4af37; background-color: transparent; }
+        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+            color: #d4af37; background-color: transparent;
+        }
+
+        /* Mega Menu Styling from index-mockup.html */
+        .navbar-nav > li.dropdown.mega-menu-dropdown { position: static; }
+        .mega-menu-dropdown .dropdown-menu { width: 100%; left: 0; right: 0; padding: 0; margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: none; }
+        .mega-menu-image { text-align: center; padding: 0; height: 100%; display: flex; align-items: stretch; }
+        .mega-menu-image img { max-width: 100%; height: auto; object-fit: cover; display: block; width: 100%; }
+        .mega-menu-links { padding: 30px; }
+        .mega-menu-links h4 { margin-top: 0; margin-bottom: 20px; font-weight: 600; color: #333; }
+        .mega-menu-links .list-unstyled li a { padding: 12px 0; display: block; color: #555; font-size: 1.3em; font-weight: 500; border-bottom: 1px solid #eee; transition: color 0.2s ease, padding-left 0.2s ease; }
+        .mega-menu-links .list-unstyled li:last-child a { border-bottom: none; }
+        .mega-menu-links .list-unstyled li a:hover { color: #d4af37; text-decoration: none; padding-left: 8px; }
+        .mega-menu-action-button { margin-bottom: 25px; }
+        .mega-menu-action-button .btn-default { background-color: #d4af37; color: white; border: none; padding: 10px 20px; font-weight: 600; }
+
+        /* Locations Styling from index-mockup.html */
+        .top-right-container { display: flex; justify-content: flex-end; align-items: center; padding-top: 15px; padding-bottom: 10px; }
+        .social-container { padding: 0 15px 0 0; border-right: 1px solid #ddd; margin-right: 15px; }
+        .locations-container { font-size: 0.9em; color: #555; }
+        .locations-label { font-weight: bold; margin-right: 10px; }
+        .location-link { margin-left: 10px; color: #555; white-space: nowrap; }
+        .location-link .fa { margin-right: 4px; color: #d4af37; }
+        .location-link:hover { color: #333; text-decoration: none; }
+
+        /* Footer Styling from index-mockup.html */
+        .footer-section { background-color: #222; color: #aaa; padding: 60px 0 40px; }
+        .footer-column h6 { color: #fff; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links li a { color: #aaa; transition: color 0.2s ease, padding-left 0.2s ease; }
+        .footer-links li a:hover { color: #fff; text-decoration: none; padding-left: 5px; }
+        .footer-social li { margin-right: 10px; }
+        .footer-social li a { color: #aaa; font-size: 1.6em; transition: color 0.2s ease; }
+        .footer-social li a:hover { color: #d4af37; }
+        .footer-column p { margin-bottom: 10px; }
+        .footer-column p .fa { margin-right: 8px; color: #d4af37; }
+        .footer-column p a { color: #aaa; }
+        .footer-column p a:hover { color: #fff; }
+        .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9em; }
+
+        /* Events Page Specific Styles */
+        .events-hero { /* Adapted from .menu-hero */
+            min-height: 350px;
+            padding: 50px 0;
+            background-color: #eee;
+            background-image: url('images/bruz-beer-flights.jpg'); /* Placeholder, suggest changing */
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px; /* Added margin for separation */
+            position: relative;
+        }
+        .events-hero-overlay { /* Adapted from .menu-hero-overlay */
+            background-color: rgba(255, 255, 255, 0.75); /* Slightly more opaque */
+            padding: 40px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .events-hero h1 {
+            font-size: 3.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #222;
+        }
+        .events-hero h2 {
+            font-size: 1.9em;
+            color: #555;
+            font-weight: 300;
+        }
+
+        #events-content-area {
+            padding: 30px 0;
+        }
+
+        .events-list-column h2, .featured-events-column h3 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af37;
+        }
+        .featured-events-column h3 {
+             font-size: 1.8em; /* Smaller for sidebar */
+        }
+
+        .event-date-group {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .event-date-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .event-date-group h3 { /* Date Header: e.g., May 7 Wednesday */
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-left: 3px solid #d4af37;
+        }
+        .event-date-group h3 .event-month { font-weight: normal; }
+        .event-date-group h3 .event-day-number { font-weight: bold; }
+        .event-date-group h3 .event-day-of-week { font-style: italic; color: #666; font-size: 0.9em; }
+
+        .event-entry {
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+        .event-entry:last-child {
+            margin-bottom: 0;
+        }
+        .event-time {
+            font-size: 0.95em;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .event-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        .event-location {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+        }
+        .event-location .fa {
+            margin-right: 5px;
+            color: #d4af37;
+        }
+
+        .featured-event-card {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+        }
+        .featured-event-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .featured-event-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            background-color: #e0e0e0; /* Placeholder color if image fails */
+        }
+        .featured-event-card h4 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .featured-event-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .featured-event-card .btn-default {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+         .featured-event-card .btn-default:hover {
+            background-color: #c4a127;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Area (Copied from menu-mockup.html) -->
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-md-3 logo-column">
+                    <a href="index.html" class="logo" title="Bruz Beers">
+                        <img src="images/bruz-logo.png" alt="Bruz Beers">
+                    </a>
+                </div>
+                <!-- Navigation and Social Icons -->
+                <div class="col-md-9">
+                    <!-- Top Right Section (Social + Locations) -->
+                    <div class="top-right-container">
+                        <div class="social-container">
+                            <ul class="social list-inline" style="margin-bottom: 0;">
+                                <li><a href="https://www.instagram.com/bruzbeers/" target="_blank"><i class="fa fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                                <li><a href="https://www.facebook.com/bruzbeers/" target="_blank"><i class="fa fa-facebook-square"></i><span class="sr-only">Facebook</span></a></li>
+                                <li><a href="https://twitter.com/bruzbeers" target="_blank"><i class="fa fa-twitter-square"></i><span class="sr-only">Twitter</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="locations-container">
+                            <span class="locations-label">Locations:</span>
+                            <a href="#" class="location-link"><i class="fa fa-map-marker"></i> Bruz Midtown</a>
+                            <a href="#" class="location-link"><i class="fa fa-map-marker"></i> Bruz Off Fax</a>
+                        </div>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="navigation-container">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-mockup" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navbar-collapse-mockup">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown mega-menu-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drink <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                         <img src="images/bruz-beer-glass-rect.jpg" alt="Bruz Beer Glass">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="menu-mockup.html">Beer Menu</a></li>
+                                                                    <li><a href="#">Non-Alcoholic Beverages</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Wine</a></li>
+                                                                    <li><a href="#">Mixed Drinks</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown mega-menu-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eat <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                         <img src="images/photos/food-trucks/elevation-5280.jpeg" alt="Food Truck">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <h4>Food Options</h4>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="#">Taproom Menu</a></li>
+                                                            <li><a href="#">Food Truck Schedule</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                   <li class="dropdown mega-menu-dropdown active"> <!-- Active for Events page -->
+                                        <a href="events-mockup.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                        <img src="images/photos/events/trivia/trivia-v.jpg" alt="Bruz Events">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="mega-menu-action-button" style="margin-bottom: 25px;">
+                                                            <a href="events-mockup.html" class="btn btn-default">All Events</a> <!-- Link to this page -->
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Daily Specials</a></li>
+                                                                    <li><a href="#">Trivia Night</a></li>
+                                                                    <li><a href="#">Belgian Import Festival</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Brewery Boot Camp</a></li>
+                                                                    <li><a href="#">Naughty Embroidery Class</a></li>
+                                                                    <li><a href="#">Private Parties</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown mega-menu-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                        <img src="images/photos/shop/hat-Athletic_Gray-Aqua_Front.jpg" alt="Bruz Beers Hat">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="mega-menu-action-button" style="margin-bottom: 25px;">
+                                                            <a href="/store" class="btn btn-default">Shop All</a>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="/to-go-beer">Gift Packages</a></li>
+                                                                    <li><a href="/store">Merchandise</a></li>
+                                                                    <li><a href="/available-only-in-taproom">Glassware</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="https://squareup.com/gift/2TX63GM6QV2HW/order" target="_blank">Gift Cards</a></li>
+                                                                    <li><a href="/badassbelgianbeerclub">Badass Belgian Beer Club</a></li>
+                                                                    <li><a href="/belgium-trip">Belgium Trip</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown mega-menu-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                                        <div class="dropdown-menu">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4 mega-menu-image">
+                                                         <img src="images/photos/staff/ryan-and-charlie-2.jpg" alt="Bruz Beers Founders">
+                                                    </div>
+                                                    <div class="col-md-8 mega-menu-links">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Our Story</a></li>
+                                                                    <li><a href="#">Our Values</a></li>
+                                                                    <li><a href="#">Belgian Style Beer</a></li>
+                                                                    <li><a href="#">Contact Us</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <ul class="list-unstyled">
+                                                                    <li><a href="#">Photo Gallery</a></li>
+                                                                    <li><a href="#">Blog</a></li>
+                                                                    <li><a href="#">Travel Log</a></li>
+                                                                    <li><a href="#">Trip to Belgium</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Events Hero Section -->
+    <div class="events-hero">
+        <div class="events-hero-overlay">
+             <h1>Upcoming Events</h1>
+             <h2>Stay Updated with Bruz Happenings</h2>
+        </div>
+    </div>
+
+    <!-- Main Events Content Area -->
+    <div class="container" id="events-content-area">
+        <div class="row">
+            <!-- Events List Column -->
+            <div class="col-md-8 events-list-column">
+                <h2>Event Calendar</h2>
+
+                <!-- May 7 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">7</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+
+                <!-- May 8 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">8</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- May 9 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">9</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">5 – 7pm</p>
+                        <h4 class="event-title">The Pie Queen at Midtown</h4>
+                    </div>
+                </div>
+
+                <!-- May 10 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">10</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                </div>
+
+                <!-- May 11 (Sunday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">11</span>, <span class="event-day-of-week">Sunday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Choose Your Own Adventure Sunday</h4>
+                    </div>
+                </div>
+
+                <!-- May 12 (Monday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">12</span>, <span class="event-day-of-week">Monday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Monday Munchies</h4>
+                    </div>
+                </div>
+
+                <!-- May 13 (Tuesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">13</span>, <span class="event-day-of-week">Tuesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">32oz Tuesday</h4>
+                    </div>
+                </div>
+
+                <!-- May 14 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">14</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+
+                <!-- May 15 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">15</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- May 16 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">16</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                </div>
+
+                <!-- May 17 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">17</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                </div>
+
+                <!-- May 18 (Sunday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">18</span>, <span class="event-day-of-week">Sunday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Choose Your Own Adventure Sunday</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">11am – 1pm</p>
+                        <h4 class="event-title">Brewery Boot Camp</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">1 – 3pm</p>
+                        <h4 class="event-title">Naughty Embroidery/ Cross Stitch Class at Bruz Off Fax</h4>
+                    </div>
+                </div>
+
+                <!-- May 19 (Monday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">19</span>, <span class="event-day-of-week">Monday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Monday Munchies</h4>
+                    </div>
+                </div>
+
+                <!-- May 20 (Tuesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">20</span>, <span class="event-day-of-week">Tuesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">32oz Tuesday</h4>
+                    </div>
+                </div>
+
+                <!-- May 21 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">21</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+
+                <!-- May 22 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">22</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- May 23 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">23</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">5 – 7pm</p>
+                        <h4 class="event-title">The Pie Queen at Midtown</h4>
+                    </div>
+                </div>
+
+                <!-- May 24 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">24</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                </div>
+
+                <!-- May 25 (Sunday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">25</span>, <span class="event-day-of-week">Sunday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Choose Your Own Adventure Sunday</h4>
+                    </div>
+                </div>
+
+                <!-- May 26 (Monday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">26</span>, <span class="event-day-of-week">Monday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Monday Munchies</h4>
+                    </div>
+                </div>
+
+                <!-- May 27 (Tuesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">27</span>, <span class="event-day-of-week">Tuesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">32oz Tuesday</h4>
+                    </div>
+                </div>
+
+                <!-- May 28 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">28</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+
+                <!-- May 29 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">29</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- May 30 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">30</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                </div>
+
+                <!-- May 31 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">May</span> <span class="event-day-number">31</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">5 – 10pm</p>
+                        <h4 class="event-title">Bruz Off Fax Closed for Private Party</h4>
+                    </div>
+                </div>
+
+                <!-- June 1 (Sunday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">1</span>, <span class="event-day-of-week">Sunday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Choose Your Own Adventure Sunday</h4>
+                    </div>
+                </div>
+
+                <!-- June 2 (Monday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">2</span>, <span class="event-day-of-week">Monday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Monday Munchies</h4>
+                    </div>
+                </div>
+
+                <!-- June 3 (Tuesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">3</span>, <span class="event-day-of-week">Tuesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">32oz Tuesday</h4>
+                    </div>
+                </div>
+
+                <!-- June 4 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">4</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+                
+                <!-- June 5 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">5</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- June 12 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">12</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- June 13 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">13</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">5:30 – 8:30pm</p>
+                        <h4 class="event-title">Summer Concert Series (Main Brewery/Midtown)</h4>
+                    </div>
+                </div>
+
+                <!-- June 14 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">14</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                </div>
+
+                <!-- June 15 (Sunday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">15</span>, <span class="event-day-of-week">Sunday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Choose Your Own Adventure Sunday</h4>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">11am – 1pm</p>
+                        <h4 class="event-title">Brewery Boot Camp</h4>
+                    </div>
+                </div>
+
+                <!-- June 16 (Monday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">16</span>, <span class="event-day-of-week">Monday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Monday Munchies</h4>
+                    </div>
+                </div>
+
+                <!-- June 17 (Tuesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">17</span>, <span class="event-day-of-week">Tuesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">32oz Tuesday</h4>
+                    </div>
+                </div>
+
+                <!-- June 18 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">18</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+
+                <!-- June 19 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">19</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- June 20 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">20</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                     <div class="event-entry">
+                        <p class="event-time">5 – 7pm</p>
+                        <h4 class="event-title">The Pie Queen at Midtown</h4>
+                    </div>
+                </div>
+
+                <!-- June 21 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">21</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                </div>
+
+                <!-- June 22 (Sunday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">22</span>, <span class="event-day-of-week">Sunday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Choose Your Own Adventure Sunday</h4>
+                    </div>
+                </div>
+
+                <!-- June 23 (Monday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">23</span>, <span class="event-day-of-week">Monday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Monday Munchies</h4>
+                    </div>
+                </div>
+
+                <!-- June 24 (Tuesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">24</span>, <span class="event-day-of-week">Tuesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">32oz Tuesday</h4>
+                    </div>
+                </div>
+
+                <!-- June 25 (Wednesday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">25</span>, <span class="event-day-of-week">Wednesday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia - Live In-Person!</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Beers, 1675 W 67th Ave #100, Denver, CO 80221, USA</p>
+                    </div>
+                    <div class="event-entry">
+                        <p class="event-time">7 – 9pm</p>
+                        <h4 class="event-title">Trivia at Bruz Off Fax</h4>
+                        <p class="event-location"><i class="fa fa-map-marker"></i>Bruz Off Fax, 1495 York St Suite 101, Denver, CO 80206, USA</p>
+                    </div>
+                </div>
+                
+                <!-- June 26 (Thursday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">26</span>, <span class="event-day-of-week">Thursday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Take Away Thursday</h4>
+                    </div>
+                </div>
+
+                <!-- June 27 (Friday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">27</span>, <span class="event-day-of-week">Friday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Fly Day Friday</h4>
+                    </div>
+                </div>
+
+                <!-- June 28 (Saturday) -->
+                <div class="event-date-group">
+                    <h3><span class="event-month">June</span> <span class="event-day-number">28</span>, <span class="event-day-of-week">Saturday</span></h3>
+                    <div class="event-entry">
+                        <p class="event-time">All day</p>
+                        <h4 class="event-title">Side Car Saturday</h4>
+                    </div>
+                </div>
+
+            </div> <!-- End .events-list-column -->
+
+            <!-- Featured Events Column -->
+            <div class="col-md-4 featured-events-column">
+                <h3>Featured Events</h3>
+                <div class="featured-event-card">
+                    <img src="images/graphics/events/featured/belgian-import-festival-2025.jpg" alt="Belgian Import Festival 2025" class="img-responsive">
+                    <h4>Belgian Import Festival 2025</h4>
+                    <p>Celebrate the finest imported Belgian brews at our annual festival.</p>
+                    <p><a href="#" class="btn btn-default btn-sm">Learn More</a></p>
+                </div>
+                <div class="featured-event-card">
+                    <img src="images/graphics/events/featured/Belgium-Tour.jpg" alt="Belgium Guided Beer Tour" class="img-responsive">
+                    <h4>Belgium Guided Beer Tour</h4>
+                    <p>Experience the heart of Belgian beer culture with our guided tour.</p>
+                    <p><a href="#" class="btn btn-default btn-sm">Learn More</a></p>
+                </div>
+                <div class="featured-event-card">
+                    <img src="images/graphics/events/featured/world-of-belgian-beers.jpg" alt="World of Belgian Beers Course" class="img-responsive">
+                    <h4>World of Belgian Beers Course</h4>
+                    <p>Deepen your knowledge of diverse Belgian beer styles.</p>
+                    <p><a href="#" class="btn btn-default btn-sm">Learn More</a></p>
+                </div>
+                
+                <div class="featured-event-card">
+                    <img src="images/graphics/events/featured/badass-belgian-beers.jpg" alt="Badass Belgian Beers Club" class="img-responsive">
+                    <h4>Badass Belgian Beers Club</h4>
+                    <p>Join our exclusive club for unique Belgian beer experiences.</p>
+                    <p><a href="#" class="btn btn-default btn-sm">Learn More</a></p>
+                </div>
+                <div class="featured-event-card">
+                    <img src="images/graphics/events/featured/Sour-Beer-Course.jpg" alt="Sour Beer Course" class="img-responsive">
+                    <h4>Sour Beer Course</h4>
+                    <p>Explore the fascinating world of sour beers with our expert-led course.</p>
+                    <p><a href="#" class="btn btn-default btn-sm">Learn More</a></p>
+                </div>
+            </div> <!-- End .featured-events-column -->
+
+        </div> <!-- End .row -->
+    </div> <!-- End #events-content-area .container -->
+
+    <!-- Footer (Copied from menu-mockup.html) -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 footer-column">
+                    <h6>Useful</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Our story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 footer-column">
+                    <h6>Help</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Customer service</a></li>
+                        <li><a href="#">Find our beer</a></li>
+                        <li><a href="#">Recent orders</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms &amp; Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 footer-column">
+                     <h6>Beer Styles</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Belgian Blondes</a></li>
+                        <li><a href="#">Tripels & Dubbels</a></li>
+                        <li><a href="#">Saisons</a></li>
+                        <li><a href="#">Specialty Ales</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5 col-sm-push-1 footer-column">
+                     <h6>Contact Information</h6>
+                    <p><i class="fa fa-map-marker"></i> 1675 W 67th Ave #100, Denver, CO 80221</p>
+                    <p><i class="fa fa-envelope-o"></i> <a href="mailto:info@bruzbeers.com">info@bruzbeers.com</a></p>
+                    <p><i class="fa fa-phone"></i> (303) 650-2337</p>
+                    <ul class="list-inline footer-social">
+                        <li><a href="https://www.instagram.com/bruzbeers/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/bruzbeers/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/bruzbeers" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>2023 &copy; Bruz Beers</p> <!-- Update year if necessary -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Removed menu-specific JS for filters and view toggles -->
+    <script>
+        $(document).ready(function() {
+            // General purpose JS can go here if needed in the future
+            // For example, smooth scrolling or other UI enhancements.
+            console.log("Events page ready.");
+        });
+    </script>
+</body>
+</html> 

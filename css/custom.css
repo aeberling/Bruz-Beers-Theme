@@ -142,9 +142,15 @@
     position: relative;
     display: inline-block;
     float: right;
+    padding-top: 15px;
+    padding-right: 0;
+    margin-right: -20px;
+    background-color: transparent; /* Make navbar background transparent */
 }
 
-.navigation-container .navbar-collapse {
+/* Override any width restrictions in the navbar container */
+.navigation-container .navbar-collapse.collapse {
+    padding-right: 0;
     padding: 0;
 }
 
@@ -161,77 +167,6 @@
     margin: 0 8px;
     display: flex;
     align-items: center;
-}
-
-.navigation-container .nav li a {
-    padding: 10px 15px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    display: inline-block;
-    line-height: 1.4;
-}
-
-.navigation-container .nav li a:hover {
-    color: #cbb27c;
-}
-
-.navigation-container .nav li span {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-.navigation-container .nav li span:before,
-.navigation-container .nav li span:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: inline-block;
-    width: 1px;
-    height: 0;
-    content: '';
-    transition: .6s height ease;
-    background: #cbb27c;
-}
-
-.navigation-container .nav li span:after {
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: auto;
-}
-
-.navigation-container .nav li:hover span:before,
-.navigation-container .nav li:hover span:after {
-    height: 100%;
-}
-
-.navigation-container .nav li a:before,
-.navigation-container .nav li a:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: inline-block;
-    width: 0;
-    height: 1px;
-    content: '';
-    transition: .3s width ease;
-    background: #cbb27c;
-}
-
-.navigation-container .nav li a:after {
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: auto;
-}
-
-.navigation-container .nav li:hover a:before,
-.navigation-container .nav li:hover a:after {
-    width: 100%;
 }
 
 .navigation-container .navbar-toggle {
@@ -261,6 +196,32 @@
 .navigation-container .dropdown-menu li a:hover {
     color: #ffffff;
     background-color: #333333;
+}
+
+/* Mega Menu overrides for original dropdown styling */
+.navigation-container .mega-menu-dropdown .dropdown-menu li a:hover {
+    color: #d4af37;
+    background-color: transparent;
+}
+
+/* Increase width of container to prevent text wrapping */
+.dropdown-menu .container-fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.mega-menu-links .row {
+    margin-left: -25px;
+    margin-right: -25px;
+}
+
+.mega-menu-links .col-sm-6 {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.mega-menu-links .list-unstyled {
+    margin-bottom: 0;
 }
 
 /* Hero section adjustments - prevent JS from changing height */
@@ -546,4 +507,163 @@
 
 .latest-post .background.bg-awards {
     background-image: url(../images/brew-8378.jpg);
+}
+
+/* Add styles from mockup for megamenu */
+
+/* Logo column styling */
+.logo-column {
+    background-color: #333; /* Dark background */
+    padding: 15px; /* Padding around logo */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center logo in column */
+}
+.logo-column img {
+    max-height: 120px; /* Increased logo size */
+    width: auto;
+}
+
+/* Top Right Container */
+.top-right-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Vertically align items */
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.social-container {
+    padding: 0 15px 0 0; /* Add spacing between social and locations */
+    border-right: 1px solid #ddd; /* Add a separator */
+    margin-right: 15px;
+}
+
+/* Locations Styling */
+.locations-container {
+    font-size: 0.9em;
+    color: #fff;
+}
+.locations-label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #fff;
+}
+.location-link {
+    margin-left: 10px;
+    color: #fff;
+    white-space: nowrap; /* Prevent wrapping */
+}
+.location-link .fa {
+    margin-right: 4px;
+    color: #d4af37; /* Gold color */
+}
+.location-link:hover {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+/* Mega Menu Styling */
+.navbar-nav > li.dropdown.mega-menu-dropdown {
+    position: static;
+}
+.mega-menu-dropdown .dropdown-menu {
+    width: 120%; /* Made 20% wider */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+    background-color: #fff;
+    max-width: none; /* Ensure no width restriction from this property */
+}
+.mega-menu-image {
+    text-align: center;
+    padding: 0; /* Removed padding */
+    height: 100%; /* Allow image column to take full height */
+    display: flex; /* Use flexbox to align image */
+    align-items: stretch; /* Stretch image container */
+}
+.mega-menu-image img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image covers the area */
+    display: block;
+    width: 100%; /* Force image to take full width of its container */
+}
+.mega-menu-links {
+    padding: 60px 50px; /* Increased vertical padding for taller content area */
+    background-color: #fff;
+}
+.mega-menu-links h4 {
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 20px; /* Add space below heading */
+    font-weight: 600; /* Make heading bolder */
+    color: #333;
+}
+.mega-menu-links .list-unstyled li a {
+    padding: 15px 0; /* More vertical padding */
+    display: block;
+    color: #555;
+    font-size: 1.5em; /* Larger text */
+    font-weight: 600; /* Bolder text */
+    border-bottom: none; /* Remove border-bottom */
+    transition: color 0.2s ease, padding-left 0.3s ease;
+}
+.mega-menu-links .list-unstyled li:last-child a {
+    border-bottom: none; /* Remove border for last item */
+}
+.mega-menu-links .list-unstyled li a:hover {
+    color: #d4af37; /* Gold hover color */
+    text-decoration: none;
+    padding-left: 12px; /* More indent on hover to match mockup */
+    background-color: transparent; /* Ensure no unwanted background on hover */
+}
+
+.mega-menu-action-button {
+    margin-bottom: 30px !important; /* Ensure enough space below buttons */
+}
+
+.mega-menu-action-button .btn-default {
+    background-color: #d4af37 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 25px !important; /* Larger button */
+    font-weight: 600 !important;
+    font-size: 1.2em !important; /* Larger text */
+    transition: background-color 0.3s ease;
+}
+
+.mega-menu-action-button .btn-default:hover {
+    background-color: #c4a127 !important; /* Slightly darker gold */
+    color: white !important; /* Ensure text color remains white */
+}
+
+/* Larger navigation links */
+.navbar-nav > li > a {
+    font-size: 1.4em; /* User adjusted size */
+    padding: 10px 10px; /* User adjusted padding */
+    color: #fff !important; /* Ensure white color */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus,
+.navbar-nav > li.active > a {
+    color: #fff !important; /* Keep white on hover/focus/active */
+    background-color: transparent !important; /* Prevent background changes */
+}
+
+.navbar-nav > li {
+    margin: 0 5px; /* Give more space between nav items */
+}
+
+/* Adjust dropdown caret position for larger font */
+.navbar-nav > .dropdown > a .caret {
+    margin-top: 18px; /* Adjusted for even larger font */
+    margin-left: 5px;
 } 
